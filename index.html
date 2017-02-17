@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>resume</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script type="text/javascript">
+        var desW = 640;
+        var winW = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+    </script>
+</head>
+<body>
+<section class="main">
+    <section class="music">
+        <audio src="audio/Love_home.mp3" preload="" id="beyond"></audio>
+    </section>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <img src="img/bg_1.png" alt=""/>
+                <img src="img/line.png" alt=""/>
+                <img src="img/line_word.png" alt=""/>
+                <img src="img/line_2.png" alt=""/>
+                <img src="img/arrow.png" alt=""/>
+                <img src="img/resume.png" alt="">
+            </div>
+            <div class="swiper-slide slide2">
+                <img src="img/2_top.png" alt=""/>
+                <img src="img/2_botm.png" alt=""/>
+                <img src="img/about_me.png" alt=""/>
+                <img src="img/photo_1.png" alt=""/>
+                <img src="img/photo_2.jpg" alt=""/>
+                <img src="img/list.png" alt="">
+                <img src="img/word.png" alt="">
+                <img src="img/arrow.png" alt=""/>
+            </div>
+            <div class="swiper-slide slide3">
+                <img src="img/3_1.png" alt="">
+                <img src="img/cehua.png" alt="">
+                <img src="img/goutong.png" alt="">
+                <img src="img/zhi.png" alt="">
+                <img src="img/shu.png" alt="">
+                <img src="img/3_word1.jpg" alt="">
+                <img src="img/3_word2.jpg" alt="">
+                <img src="img/3_word4.jpg" alt="">
+                <img src="img/3_word3.jpg" alt="">
+                <img src="img/arrow.png" alt=""/>
+            </div>
+            <div class="swiper-slide slide4">
+                <img src="img/4_work1.png" alt="">
+                <img src="img/4_work2.png" alt="">
+                <img src="img/4_3.png" alt="">
+                <img src="img/hands_1.png" alt="">
+                <img src="img/hands_2.png" alt="">
+                <img src="img/hands_3.png" alt="">
+                <img src="img/hands_11.png" alt="">
+                <img src="img/hands_22.png" alt="">
+                <img src="img/hands_33.png" alt="">
+                <img src="img/arrow.png" alt=""/>
+            </div>
+            <div class="swiper-slide slide5">
+                <img src="img/photo_1.png" alt=""/>
+                <img src="img/photo_2.jpg" alt=""/>
+                <img src="img/call_me.png" alt="">
+                <img src="img/call_2.png" alt="">
+                <img src="img/call_3.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: "vertical",
+        loop:true,
+        onTransitionEnd: function (swiper) {
+            var curIndex = swiper.activeIndex;
+            var slides = swiper.slides;
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";
+                if (index == curIndex) {
+                    switch (index){
+                        case 0:
+                            item.id = "page" + slides.length-2;
+                            break;
+                        case slides.length-1:
+                            item.id = "page1";
+                            break;
+                        default :
+                            item.id = "page" + index;
+                    }
+                }
+            })
+        }
+    });
+    var music = document.querySelector('.music');
+    var beyond = document.querySelector('#beyond');
+    window.setTimeout(function(){
+        music.style.opacity = 1;
+        beyond.play();
+        music.className = "music musicMove";
+    },1000);
+    music.addEventListener("click",function(){
+        if(beyond.paused){
+            beyond.play();
+            music.className = "music musicMove";
+        }else{
+            beyond.pause();
+            music.className = "music";
+        }
+    },false);
+</script>
